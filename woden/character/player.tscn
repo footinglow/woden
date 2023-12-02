@@ -3,13 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://dw2k5l5e4wrya" path="res://assets/blender/player/Player.glb" id="1_yiqaw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t35yp"]
-radius = 0.2
-height = 1.5
+radius = 0.4
+height = 4.5
 
 [node name="Player" type="CharacterBody3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_yiqaw")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)

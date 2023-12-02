@@ -1,7 +1,7 @@
 extends Node3D
 
 # Player
-@export var _d_speed_mps = 30.0
+@export var _d_speed_mps = 100.0
 
 # ドラッグ操作検知用
 var _f_is_screen_touch = false		# 画面にタッチ（ドラッグ含む）している場合true、タッチしていない場合はfalse
