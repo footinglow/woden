@@ -1,4 +1,4 @@
-extends Node3D
+extends CharacterBody3D
 
 # Player
 @export var _d_speed_mps = 100.0
@@ -24,12 +24,8 @@ func _input(event):
 	else:
 		pass
 
-	# タッチ（ドラッグ含む）している場合は、位置を記憶する
-	if _f_is_screen_touch:
-		# タッチしている間はドラッグ位置を更新する
-		_v2_drag_pos = event.position	
-	else:
-		pass
+	# ドラッグ位置（タッチ位置）を更新する
+	_v2_drag_pos = event.position	
 
 func _physics_process(delta):
 	if _f_is_screen_touch:
@@ -49,12 +45,12 @@ func _physics_process(delta):
 		if result:
 			# 衝突位置を取得
 			var v_drag_pos  = result.position
-			v_drag_pos.y = $Player.global_position.y	# Y方向には移動しないための設定
+			v_drag_pos.y = global_position.y	# Y方向には移動しないための設定
 			if _v_first_touch_pos == null :
 				# 初めてタッチしたときの、3D位置を記憶する
 				_v_first_touch_pos = v_drag_pos
 				# 初めてタッチしたときの、プレイヤーの3D位置を記憶する
-				_v_first_touch_player_pos = $Player.global_position
+				_v_first_touch_player_pos = global_position
 			else:
 				pass
 			
@@ -62,18 +58,18 @@ func _physics_process(delta):
 			var v_target_pos = _v_first_touch_player_pos + ( v_drag_pos - _v_first_touch_pos )
 			
 			# Player位置から移動目標位置までの相対位置を計算
-			var v_target : Vector3 = v_target_pos - $Player.global_position
+			var v_target : Vector3 = v_target_pos - global_position
 			# 移動目標位置に向かう速度ベクトルを生成
 			var v_velocity : Vector3 = v_target.normalized() * _d_speed_mps
 			if v_target.length() < ( v_velocity * delta ).length():
 				# 目的地までの距離が、delta当たりの移動量よりも小さい場合は、飛び越えてしまうため、Playerの位置を目標位置にする
-				$Player.global_position = v_target_pos
+				global_position = v_target_pos
 			else:
 				# 速度を設定して動かす
-				$Player.velocity =  v_velocity
-				$Player.move_and_slide()
+				velocity =  v_velocity
+				move_and_slide()
 		else:
-			# 
+			# タッチ位置に衝突したものが無い
 			pass
 	else:
 		# タッチしていない場合はnullを設定することで、次にタッチしたときに、新しいタッチ位置とPlayer位置を記憶する
