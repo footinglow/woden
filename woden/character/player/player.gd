@@ -44,7 +44,7 @@ func _physics_process(delta):
 		var result = space_state.intersect_ray(query)
 		if result:
 			# 衝突位置を取得
-			var v_drag_pos  = result.position
+			var v_drag_pos = result.position
 			v_drag_pos.y = global_position.y	# Y方向には移動しないための設定
 			if _v_first_touch_pos == null :
 				# 初めてタッチしたときの、3D位置を記憶する
@@ -65,8 +65,8 @@ func _physics_process(delta):
 				# 目的地までの距離が、delta当たりの移動量よりも小さい場合は、飛び越えてしまうため、Playerの位置を目標位置にする
 				global_position = v_target_pos
 			else:
-				# 速度を設定して動かす
-				velocity =  v_velocity
+				# CharacterBody3Dのvelocityに速度を設定して動かす
+				velocity = v_velocity
 				move_and_slide()
 		else:
 			# タッチ位置に衝突したものが無い
