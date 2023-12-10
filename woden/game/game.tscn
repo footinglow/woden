@@ -1,9 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://5v2k4m2rwv3j"]
+[gd_scene load_steps=8 format=3 uid="uid://5v2k4m2rwv3j"]
 
 [ext_resource type="PackedScene" uid="uid://qoekq8wglxa3" path="res://character/player/player.tscn" id="1_fmsci"]
+[ext_resource type="Texture2D" uid="uid://c8w4teh4o54im" path="res://assets/Background/space.png" id="2_fuv2f"]
+[ext_resource type="Script" path="res://game/WorldEnvironment.gd" id="3_kuput"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_paxq8"]
 size = Vector3(1000, 1, 1000)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xr5s0"]
+panorama = ExtResource("2_fuv2f")
+filter = false
+
+[sub_resource type="Sky" id="Sky_0b7po"]
+sky_material = SubResource("PanoramaSkyMaterial_xr5s0")
+
+[sub_resource type="Environment" id="Environment_hsw16"]
+background_mode = 2
+sky = SubResource("Sky_0b7po")
+sky_custom_fov = 45.0
+sky_rotation = Vector3(0, 0, 1.74533)
+tonemap_mode = 1
 
 [node name="game" type="Node3D"]
 
@@ -20,3 +36,7 @@ transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, -4, 0, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TouchDetectorArea3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_paxq8")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hsw16")
+script = ExtResource("3_kuput")
