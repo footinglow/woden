@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://qoekq8wglxa3"]
+[gd_scene load_steps=5 format=3 uid="uid://qoekq8wglxa3"]
 
 [ext_resource type="Script" path="res://character/player/player.gd" id="1_fdm1a"]
 [ext_resource type="PackedScene" uid="uid://dw2k5l5e4wrya" path="res://assets/blender/player/Player.glb" id="1_yiqaw"]
+[ext_resource type="PackedScene" uid="uid://dci6layah122f" path="res://character/player/my_laser.tscn" id="2_b5umh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t35yp"]
 radius = 0.4
@@ -9,6 +10,7 @@ height = 4.5
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_fdm1a")
+_scn_laser = ExtResource("2_b5umh")
 
 [node name="Player" parent="." instance=ExtResource("1_yiqaw")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0, 0, 0)
