@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://chmabukyrxtsc"]
+
+[ext_resource type="PackedScene" uid="uid://dus0aqnwwjfch" path="res://assets/blender/twin_body/twin_body.glb" id="1_ifrin"]
+[ext_resource type="Script" path="res://character/enemy/twin_body.gd" id="1_k2uxh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cipgf"]
+size = Vector3(3, 1, 5)
+
+[node name="twin_body" type="Area3D"]
+script = ExtResource("1_k2uxh")
+
+[node name="twin_body" parent="." instance=ExtResource("1_ifrin")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_cipgf")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
