@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dr325hxghj710"]
+
+[ext_resource type="Script" path="res://scenario/elements/_wait_specified_time.gd" id="1_61qbh"]
+
+[node name="_wait_specified_time" type="Node"]
+script = ExtResource("1_61qbh")
