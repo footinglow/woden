@@ -9,4 +9,4 @@ func _ready():
 	add_child(_node_scenario_ins)
 
 func _process(delta):
-	_node_scenario_ins.run(delta)
+	_node_scenario_ins.run_scenario()

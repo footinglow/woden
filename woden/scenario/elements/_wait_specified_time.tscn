@@ -4,3 +4,6 @@
 
 [node name="_wait_specified_time" type="Node"]
 script = ExtResource("1_61qbh")
+
+[node name="Timer_for_wait_specified_time" type="Timer" parent="."]
+one_shot = true

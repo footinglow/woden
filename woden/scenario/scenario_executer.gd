@@ -1,16 +1,16 @@
 extends Node
 
-var _i_run_scenario_elem_num = 1		# シナリオノード全体のうち、実行対象の数
+var _i_started_element_idx = 0		# 開始指示済みのシナリオ要素のインデックス
 
-func run(delta):
-	# シナリオ要素を先頭から、実行対象ノードまで実行する
-	for i in range(_i_run_scenario_elem_num):
-		get_child(i).produce(delta)	
-
-	# 最後のノード
-	if get_child(_i_run_scenario_elem_num-1).wait_scenario(delta):
+func _ready():
+	get_child(0).start_element()
+	
+func run_scenario():
+	if get_child(_i_started_element_idx).is_blocking_to_move_on_next_scenario():
+		# ブロックされているので、シナリオは進めない
 		pass
 	else:
-		if _i_run_scenario_elem_num < get_child_count():
-			_i_run_scenario_elem_num += 1
-			
+		if _i_started_element_idx < ( get_child_count() - 1 ):
+			# シナリオを1個進めて、開始する
+			_i_started_element_idx += 1
+			get_child(_i_started_element_idx).start_element()

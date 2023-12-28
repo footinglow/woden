@@ -4,3 +4,7 @@
 
 [node name="produce_twin_body" type="Node"]
 script = ExtResource("1_q12yd")
+
+[node name="Timer_for_produce" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer_for_produce" to="." method="_on_timer_for_produce_timeout"]

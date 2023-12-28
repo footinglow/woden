@@ -4,24 +4,28 @@ extends scenario_base_element
 @export var _d_produce_interval_sec = 0.5
 var _scn_generator = preload("res://character/enemy/twin_body.tscn")
 
-var _d_remain_time_sec = _d_produce_interval_sec
-var _i_remain_num = _i_produce_num;
+var _i_produced_num = 0;
 
-func produce(delta):
-	_d_remain_time_sec -= delta
-	if _d_remain_time_sec <= 0.0 and _i_remain_num > 0:
-		var ins = _scn_generator.instantiate()
-		ins.position.z = -135
-		ins.position.x = randf() * 100 - 50.0
-		add_child(ins)
-		
-		_i_remain_num -= 1
-		_d_remain_time_sec = _d_produce_interval_sec
+#override
+func start_element():
+	$Timer_for_produce.start(_d_produce_interval_sec)
 
-func wait_scenario(delta) -> bool:
-	if _i_remain_num > 0:
-		# 敵インスタンスを生成中はtrueを返してシナリオを勧めない
-		return true
-	else:
-		# シナリオを次に進める
-		return false
+#override
+func is_blocking_to_move_on_next_scenario() -> bool:
+	# 敵キャラの生産が完了したらfalseにする
+	return ( _i_produced_num < _i_produce_num )
+
+#signal_event
+func _on_timer_for_produce_timeout():
+	# 敵キャラクターのインスタンスを生成、位置を設定してシーンに追加する
+	var ins = _scn_generator.instantiate()
+	ins.position.z = -200
+	ins.position.x = randf_range(-25, 25)
+	add_child(ins)
+	
+	# 生産完了したら、タイマーを停止する
+	_i_produced_num += 1
+	if ( _i_produced_num >= _i_produce_num ):
+		$Timer_for_produce. stop()
+
+

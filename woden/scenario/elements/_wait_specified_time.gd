@@ -3,11 +3,11 @@ extends scenario_base_element
 
 @export var _d_wait_time_sec = 5.0
 
-var _d_remain_timer_sec = _d_wait_time_sec
+#override
+func start_element():
+	$Timer_for_wait_specified_time.start(_d_wait_time_sec)
 
-func wait_scenario(delta) -> bool:
-	if _d_remain_timer_sec <= 0.0:
-		return false
-	else:
-		_d_remain_timer_sec -= delta
-		return true
+#override
+func is_blocking_to_move_on_next_scenario() -> bool:
+	# タイマー稼働中は、シナリオをブロックするためtrueを返す
+	return !$Timer_for_wait_specified_time.is_stopped()
