@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dr325hxghj710"]
+
+[ext_resource type="Script" path="res://scenario/elements/wait_specified_time.gd" id="1_6fojl"]
+
+[node name="wait_specified_time" type="Node"]
+script = ExtResource("1_6fojl")
+
+[node name="Timer_for_wait_specified_time" type="Timer" parent="."]
+one_shot = true

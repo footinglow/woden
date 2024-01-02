@@ -1,18 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://djm6a38w7x0n7"]
 
-[ext_resource type="Script" path="res://scenario/scenario_executer.gd" id="1_tlf38"]
-[ext_resource type="PackedScene" uid="uid://dr325hxghj710" path="res://scenario/elements/_wait_specified_time.tscn" id="2_o7h6k"]
+[ext_resource type="Script" path="res://scenario/scenario_executor.gd" id="1_j3plt"]
+[ext_resource type="PackedScene" uid="uid://dr325hxghj710" path="res://scenario/elements/wait_specified_time.tscn" id="2_o7h6k"]
 [ext_resource type="PackedScene" uid="uid://bwipc7alsssgx" path="res://scenario/elements/produce_twin_body.tscn" id="3_lvaux"]
 
 [node name="scenario_stage01" type="Node"]
-script = ExtResource("1_tlf38")
+script = ExtResource("1_j3plt")
 
-[node name="_wait_5sec" parent="." instance=ExtResource("2_o7h6k")]
+[node name="wait_5sec" parent="." instance=ExtResource("2_o7h6k")]
 
 [node name="produce_twin_body" parent="." instance=ExtResource("3_lvaux")]
 _d_produce_interval_sec = 1.0
 
-[node name="_wait_5sec_b" parent="." instance=ExtResource("2_o7h6k")]
+[node name="wait_5sec_b" parent="." instance=ExtResource("2_o7h6k")]
 _d_wait_time_sec = 10.0
 
 [node name="produce_twin_body2" parent="." instance=ExtResource("3_lvaux")]

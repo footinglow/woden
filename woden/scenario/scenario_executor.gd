@@ -5,7 +5,7 @@ var _i_started_element_idx = 0		# 開始指示済みのシナリオ要素のイ�
 func _ready():
 	get_child(0).start_element()
 	
-func run_scenario():
+func drive_scenario():
 	if get_child(_i_started_element_idx).is_blocking_to_move_on_next_scenario():
 		# ブロックされているので、シナリオは進めない
 		pass
