@@ -1,5 +1,4 @@
-#extends Node
-extends scenario_base_element
+extends Node
 
 @export var _d_wait_time_sec = 5.0
 

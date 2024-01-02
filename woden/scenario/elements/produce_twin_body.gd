@@ -1,4 +1,4 @@
-extends scenario_base_element
+extends Node
 
 @export	var _i_produce_num = 10
 @export var _d_produce_interval_sec = 0.5
