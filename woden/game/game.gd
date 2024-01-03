@@ -9,4 +9,5 @@ func _ready():
 	add_child(_node_scenario_ins)
 
 func _process(delta):
+	# シナリオを駆動する
 	_node_scenario_ins.drive_scenario()
