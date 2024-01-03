@@ -9,10 +9,10 @@ script = ExtResource("1_j3plt")
 
 [node name="wait_5sec" parent="." instance=ExtResource("2_o7h6k")]
 
-[node name="produce_twin_body_x_10_per_1sec" parent="." instance=ExtResource("3_lvaux")]
+[node name="produce_twin_body_x_10_every_1sec" parent="." instance=ExtResource("3_lvaux")]
 _d_produce_interval_sec = 1.0
 
 [node name="wait_10sec" parent="." instance=ExtResource("2_o7h6k")]
 _d_wait_time_sec = 10.0
 
-[node name="produce_twin_body_x_10_per_500msec" parent="." instance=ExtResource("3_lvaux")]
+[node name="produce_twin_body_x_10_every_500msec" parent="." instance=ExtResource("3_lvaux")]
