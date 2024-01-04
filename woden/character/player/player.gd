@@ -1,7 +1,8 @@
-extends CharacterBody3D
+extends Area3D
 
 # Player
 @export var _d_speed_mps = 100.0
+@export var _d_hp = 1.0
 
 # ドラッグ操作検知用
 var _f_is_screen_touch = false		# 画面にタッチ（ドラッグ含む）している場合true、タッチしていない場合はfalse
@@ -32,7 +33,6 @@ func _input(event):
 		_v2_drag_pos = event.position	
 	else:
 		pass
-
 
 func _physics_process(delta):
 	if _f_is_screen_touch:
@@ -73,8 +73,7 @@ func _physics_process(delta):
 				global_position = v_target_pos
 			else:
 				# CharacterBody3Dのvelocityに速度を設定して動かす
-				velocity = v_velocity
-				move_and_slide()
+				position += v_velocity * delta
 		else:
 			# タッチ位置に衝突したものが無い
 			pass
@@ -97,3 +96,11 @@ func _physics_process(delta):
 	else:
 		# タッチしたときにすぐ、レーダーが発射するようにする
 		_d_firing_remain_time_sec = 0
+
+	# HPが0になった場合、Playerは消滅する
+	if _d_hp <= 0:
+		queue_free()
+		
+func _on_area_entered(area):
+	# 敵もしくは敵の弾の攻撃があたったため、HPを0にする
+	_d_hp = 0.0

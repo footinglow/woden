@@ -8,7 +8,9 @@
 radius = 0.4
 height = 4.5
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="Area3D"]
+collision_layer = 0
+collision_mask = 24
 script = ExtResource("1_fdm1a")
 _scn_laser = ExtResource("2_b5umh")
 
@@ -18,3 +20,5 @@ transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0, 0, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_t35yp")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
