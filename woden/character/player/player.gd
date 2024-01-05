@@ -90,7 +90,7 @@ func _physics_process(delta):
 			# レーザーを発射する
 			var scn : Area3D = _scn_laser.instantiate()
 			scn.set_pos(global_position)
-			g_val._node_lasers.add_child(scn)
+			g_val.node_lasers.add_child(scn)
 			# 発射間隔を設定
 			_d_firing_remain_time_sec = _d_firing_interval_sec
 	else:
