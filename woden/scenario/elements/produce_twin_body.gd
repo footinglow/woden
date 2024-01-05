@@ -18,7 +18,7 @@ func _on_timer_for_produce_timeout():
 	var ins = _scn_enemy.instantiate()
 	ins.position.z = -200
 	ins.position.x = randf_range(-25, 25)
-	add_child(ins)
+	g_val._node_enemies.add_child(ins)
 	
 	# 生産完了したら、タイマーを停止する
 	_i_produced_num += 1

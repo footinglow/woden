@@ -42,3 +42,13 @@ shape = SubResource("BoxShape3D_paxq8")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_hsw16")
 script = ExtResource("3_kuput")
+
+[node name="DynamicNodes" type="Node3D" parent="."]
+
+[node name="lasers" type="Node3D" parent="DynamicNodes"]
+
+[node name="enemy" type="Node3D" parent="DynamicNodes"]
+
+[node name="bodies" type="Node3D" parent="DynamicNodes/enemy"]
+
+[node name="bullets" type="Node3D" parent="DynamicNodes/enemy"]
