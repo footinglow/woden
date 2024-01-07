@@ -9,6 +9,9 @@ func _ready():
 	g_val.node_lasers = $DynamicNodes/lasers
 	g_val.node_enemies = $DynamicNodes/enemy/bodies
 	g_val.node_bullets = $DynamicNodes/enemy/bullets
+
+	# Playerインスタンスを設定する
+	g_val.node_player = $Player
 	
 	# ステージシナリオをシーンツリーに追加
 	_node_scenario_ins = _scn_scenario_stage.instantiate()
