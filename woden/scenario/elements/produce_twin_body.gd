@@ -18,6 +18,9 @@ func _on_timer_for_produce_timeout():
 	var ins = _scn_enemy.instantiate()
 	ins.position.z = -200
 	ins.position.x = randf_range(-25, 25)
+	# add_to_scoreシグナルをgame.gdに接続する
+	ins.add_to_score.connect( g_val.node_game._on_add_to_score )
+	# 敵インスタンスをシーンツリーに追加
 	g_val.node_enemies.add_child(ins)
 	
 	# 生産完了したら、タイマーを停止する

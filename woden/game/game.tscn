@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://5v2k4m2rwv3j"]
+[gd_scene load_steps=11 format=3 uid="uid://5v2k4m2rwv3j"]
 
 [ext_resource type="PackedScene" uid="uid://qoekq8wglxa3" path="res://character/player/player.tscn" id="1_fmsci"]
 [ext_resource type="Script" path="res://game/game.gd" id="1_jtlw6"]
@@ -22,6 +22,16 @@ sky_custom_fov = 45.0
 sky_rotation = Vector3(0, 0, 1.74533)
 tonemap_mode = 1
 
+[sub_resource type="LabelSettings" id="LabelSettings_oft53"]
+font_size = 20
+outline_size = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_fdxsj"]
+font_size = 20
+font_color = Color(0.760784, 0.780392, 0, 1)
+outline_size = 5
+outline_color = Color(0.368627, 0.690196, 0, 1)
+
 [node name="game" type="Node3D"]
 script = ExtResource("1_jtlw6")
 
@@ -42,6 +52,28 @@ shape = SubResource("BoxShape3D_paxq8")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_hsw16")
 script = ExtResource("3_kuput")
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="score" type="Label" parent="HUD"]
+layout_mode = 0
+offset_left = 11.0
+offset_right = 72.0
+offset_bottom = 31.0
+text = "Score"
+label_settings = SubResource("LabelSettings_oft53")
+
+[node name="score_value" type="Label" parent="HUD"]
+layout_mode = 2
+offset_left = 86.0
+offset_right = 204.0
+offset_bottom = 31.0
+text = "0000000000"
+label_settings = SubResource("LabelSettings_fdxsj")
 
 [node name="DynamicNodes" type="Node3D" parent="."]
 

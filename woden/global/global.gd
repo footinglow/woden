@@ -1,5 +1,8 @@
 extends Node3D
 
+# gameのインスタンス
+var node_game : Node3D = null 
+
 # 生成したインスタンスの追加先
 var node_lasers : Node3D = null
 var node_enemies : Node3D = null 

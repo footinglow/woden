@@ -1,11 +1,15 @@
 extends Area3D
 
+signal add_to_score(int)
+
 @export var _d_speed_mps = 20.0
 @export var _d_hp = 1
+@export var _i_score = 100
 
 func _physics_process(delta):
 	global_position += Vector3(0, 0, 1) * _d_speed_mps * delta
 	if _d_hp <= 0:
+		add_to_score.emit(_i_score)
 		queue_free()
 
 func _on_visible_on_screen_notifier_3d_screen_exited():
