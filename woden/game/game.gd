@@ -8,7 +8,7 @@ var _i_score : int = 0
 
 func _ready():
 	# gameインスタンスを保存
-	g_val.node_game = $"."
+	g_val.node_game = self
 	
 	# インスタンス化したシーンの追加先を設定する
 	g_val.node_lasers = $DynamicNodes/lasers
