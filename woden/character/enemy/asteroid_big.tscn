@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bu5jlqfgf8pnc"]
+
+[ext_resource type="PackedScene" uid="uid://kec8y3ecm236" path="res://assets/blender/asteroid/asteroid.glb" id="1_bey68"]
+[ext_resource type="Script" path="res://character/enemy/asteroid_big.gd" id="1_eqvgh"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hjigc"]
+radius = 6.0
+
+[node name="asteroid_big" type="Area3D"]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_eqvgh")
+
+[node name="asteroid" parent="." instance=ExtResource("1_bey68")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 1.73007, -0.0243659)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_hjigc")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]

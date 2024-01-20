@@ -3,8 +3,13 @@ extends Node3D
 # ゲーム画面の見える範囲
 # ゲーム画面の上端をtop、下端をbotommとする
 var d_visible_top_z_m = -200.0
-var d_visible_top_min_x_m = -25.0
-var d_visible_top_max_x_m =  25.0
+var d_visible_top_min_x_m = -75.0
+var d_visible_top_max_x_m =  75.0
+
+var d_visible_bottom_z_m = -15.0
+var d_visible_bottom_min_x_m = -25.0
+var d_visible_bottom_max_x_m =  25.0
+
 
 # gameのインスタンス
 var node_game : Node3D = null 

@@ -27,8 +27,8 @@ func _on_timer_for_produce_timeout():
 	ins.d_enemy_hp = _d_hp
 	ins.i_enemy_score = _i_score
 	ins.position.z = g_val.d_visible_top_z_m
-	ins.position.x = randf_range(	g_val.d_visible_top_min_x_m,
-									g_val.d_visible_top_max_x_m)
+	ins.position.x = randf_range(	g_val.d_visible_bottom_min_x_m,
+									g_val.d_visible_bottom_max_x_m)
 
 	# add_to_scoreシグナルをgame.gdに接続する
 	ins.add_to_score.connect( g_val.node_game._on_add_to_score )
