@@ -14,6 +14,7 @@ func _ready():
 	g_val.node_lasers = $DynamicNodes/lasers
 	g_val.node_enemies = $DynamicNodes/enemy/bodies
 	g_val.node_bullets = $DynamicNodes/enemy/bullets
+	g_val.node_others = $DynamicNodes/others
 
 	# Playerインスタンスを設定する
 	g_val.node_player = $Player

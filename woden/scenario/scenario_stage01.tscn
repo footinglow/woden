@@ -1,14 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://djm6a38w7x0n7"]
+[gd_scene load_steps=6 format=3 uid="uid://djm6a38w7x0n7"]
 
 [ext_resource type="Script" path="res://scenario/scenario_executor.gd" id="1_j3plt"]
 [ext_resource type="PackedScene" uid="uid://d2ukpy8y12lst" path="res://scenario/elements/produce_asteroid_big.tscn" id="2_4fsts"]
+[ext_resource type="PackedScene" uid="uid://dejjcnjwou2w4" path="res://scenario/elements/produce_upgrade_item.tscn" id="2_kqijy"]
 [ext_resource type="PackedScene" uid="uid://dr325hxghj710" path="res://scenario/elements/wait_specified_time.tscn" id="2_o7h6k"]
 [ext_resource type="PackedScene" uid="uid://bwipc7alsssgx" path="res://scenario/elements/produce_twin_body.tscn" id="3_lvaux"]
 
 [node name="scenario_stage01" type="Node"]
 script = ExtResource("1_j3plt")
 
+[node name="produce_upgrade_item" parent="." instance=ExtResource("2_kqijy")]
+
 [node name="produce_asteroid_big" parent="." instance=ExtResource("2_4fsts")]
+
+[node name="produce_upgrade_item2" parent="." instance=ExtResource("2_kqijy")]
 
 [node name="wait_5sec" parent="." instance=ExtResource("2_o7h6k")]
 

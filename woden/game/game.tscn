@@ -84,3 +84,5 @@ label_settings = SubResource("LabelSettings_fdxsj")
 [node name="bodies" type="Node3D" parent="DynamicNodes/enemy"]
 
 [node name="bullets" type="Node3D" parent="DynamicNodes/enemy"]
+
+[node name="others" type="Node3D" parent="DynamicNodes"]
