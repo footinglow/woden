@@ -1,5 +1,11 @@
 extends Node3D
 
+# アップグレードアイテムの種別
+enum EnItemKind{
+	POWER_UP,
+	SPEED_UP	
+}
+
 # ゲーム画面の見える範囲
 # ゲーム画面の上端をtop、下端をbotommとする
 var d_visible_top_z_m = -200.0

@@ -5,7 +5,7 @@ var _d_speed_mps = 20.0
 
 var _material_body : StandardMaterial3D = null
 var _mesh_text : TextMesh = null
-var _f_is_power_item = true
+var en_item_kind = g_val.EnItemKind.SPEED_UP
 
 func _ready():
 	# Bodyマテリアル用
@@ -23,8 +23,11 @@ func _on_visible_on_screen_notifier_3d_screen_exited():
 	queue_free()
 
 func _on_timer_timeout():
-	_f_is_power_item = !_f_is_power_item
-	if _f_is_power_item:
+	# アップグレードアイテムの種別を切り替える
+	en_item_kind = g_val.EnItemKind.POWER_UP if en_item_kind == g_val.EnItemKind.SPEED_UP else g_val.EnItemKind.SPEED_UP
+	
+	# アップグレードアイテムの種別に応じて、デザインを変更する
+	if en_item_kind == g_val.EnItemKind.SPEED_UP:
 		# Speedに変更
 		_mesh_text.text = "S"
 		_material_body.albedo_color = Color(0.5, 0.5, 1, 1)
