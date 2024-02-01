@@ -37,6 +37,7 @@ pointing/emulate_touch_from_mouse=true
 3d_physics/layer_3="MyLaser"
 3d_physics/layer_4="Emeny"
 3d_physics/layer_5="EmenyBullet"
+3d_physics/layer_6="UpgradeItem"
 
 [rendering]
 

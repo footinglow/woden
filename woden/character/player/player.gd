@@ -1,7 +1,7 @@
 extends Area3D
 
 # Player
-@export var _d_speed_mps = 100.0
+@export var _d_speed_mps = 25.0
 @export var _d_hp = 1.0
 
 # ドラッグ操作検知用
@@ -19,6 +19,11 @@ var _v_first_touch_player_pos = Vector3.ZERO
 @export var _scn_laser : PackedScene
 @export var _d_firing_interval_sec = 0.2
 var _d_firing_remain_time_sec = 0
+
+# アップグレードアイテムで性能
+const _d_speed_magnification_max : float = 3.0
+const _d_speed_magnification_min : float = 1.0
+var _d_speed_magnification = _d_speed_magnification_min
 
 func _input(event):
 	# 画面にタッチしている状態と、タッチしていない状態を判断する
@@ -67,7 +72,7 @@ func _physics_process(delta):
 			# Player位置から移動目標位置までの相対位置を計算
 			var v_target : Vector3 = v_target_pos - global_position
 			# 移動目標位置に向かう速度ベクトルを生成
-			var v_velocity : Vector3 = v_target.normalized() * _d_speed_mps
+			var v_velocity : Vector3 = v_target.normalized() * _d_speed_mps * _d_speed_magnification
 			if v_target.length() < ( v_velocity * delta ).length():
 				# 目的地までの距離が、delta当たりの移動量よりも小さい場合は、飛び越えてしまうため、Playerの位置を目標位置にする
 				global_position = v_target_pos
@@ -104,3 +109,12 @@ func _physics_process(delta):
 func _on_area_entered(area):
 	# 敵もしくは敵の弾の攻撃があたったため、HPを0にする
 	_d_hp = 0.0
+
+func _on_item_sensor_area_entered(area):
+	# アップグレードアイテム
+	if area.en_item_kind == g_val.EnItemKind.SPEED_UP :
+		# パワーアップアイテム
+		_d_speed_magnification = clampf(_d_speed_magnification + 0.4, _d_speed_magnification_min, _d_speed_magnification_max)
+	else:
+		pass
+	area.queue_free()

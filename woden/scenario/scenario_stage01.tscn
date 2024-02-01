@@ -11,6 +11,14 @@ script = ExtResource("1_j3plt")
 
 [node name="produce_upgrade_item" parent="." instance=ExtResource("2_kqijy")]
 
+[node name="produce_upgrade_item3" parent="." instance=ExtResource("2_kqijy")]
+
+[node name="produce_upgrade_item4" parent="." instance=ExtResource("2_kqijy")]
+
+[node name="produce_upgrade_item5" parent="." instance=ExtResource("2_kqijy")]
+
+[node name="produce_upgrade_item6" parent="." instance=ExtResource("2_kqijy")]
+
 [node name="produce_asteroid_big" parent="." instance=ExtResource("2_4fsts")]
 
 [node name="produce_upgrade_item2" parent="." instance=ExtResource("2_kqijy")]
