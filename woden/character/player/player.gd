@@ -16,11 +16,25 @@ var _v_first_touch_player_pos = Vector3.ZERO
 @export var _d_ray_length_m = 1000		# [m]十分な長さにする
 
 # レーザーの発射タイミング
-@export var _scn_laser : PackedScene
 @export var _d_firing_interval_sec = 0.2
 var _d_firing_remain_time_sec = 0
 
-# アップグレードアイテムで性能
+# パワーアップ段階（レベル）の定義
+var _i_laser_power_level = 0
+
+# レーザー用シーンと威力の定義
+var _aa_laser_scn_and_pow=[
+	 [ preload("res://character/player/my_laser.tscn"), 1 ],
+	 [ preload("res://character/player/my_laser.tscn"), 1 ],
+	 [ preload("res://character/player/my_laser3.tscn"), 2 ],
+	 [ preload("res://character/player/my_laser4.tscn"), 3 ],
+	 [ preload("res://character/player/my_laser5.tscn"), 4 ]
+	]
+
+# リングレーザ用ーシーン
+var _scn_ring_laser : PackedScene = preload("res://character/player/my_ring_laser.tscn")
+
+# スピードアップ倍率の定義
 const _d_speed_magnification_max : float = 3.0
 const _d_speed_magnification_min : float = 1.0
 var _d_speed_magnification = _d_speed_magnification_min
@@ -92,10 +106,28 @@ func _physics_process(delta):
 			# 次の発射までの残り時間を減算するのみ
 			_d_firing_remain_time_sec -= delta
 		else:
-			# レーザーを発射する
-			var scn : Area3D = _scn_laser.instantiate()
+			# 主砲のレーザーを発射する
+			var scn : Area3D = _aa_laser_scn_and_pow[_i_laser_power_level][0].instantiate()
 			scn.set_pos(global_position)
+			scn.d_power_point = _aa_laser_scn_and_pow[_i_laser_power_level][1]
 			g_val.node_lasers.add_child(scn)
+
+			# リングレーザーを発射する
+			if _i_laser_power_level > 0:
+				# 左斜め前方に発射
+				var scn_l : Area3D = _scn_ring_laser.instantiate()
+				scn_l.set_pos(global_position)
+				scn_l.v_dir = Vector3(-0.5, 0, -1)
+				g_val.node_lasers.add_child(scn_l)
+
+				# 右斜め前方に発射
+				var scn_r : Area3D = _scn_ring_laser.instantiate()
+				scn_r.set_pos(global_position)
+				scn_r.v_dir = Vector3( 0.5, 0, -1)
+				g_val.node_lasers.add_child(scn_r)
+			else:
+				pass
+
 			# 発射間隔を設定
 			_d_firing_remain_time_sec = _d_firing_interval_sec
 	else:
@@ -115,6 +147,11 @@ func _on_item_sensor_area_entered(area):
 	if area.en_item_kind == g_val.EnItemKind.SPEED_UP :
 		# パワーアップアイテム
 		_d_speed_magnification = clampf(_d_speed_magnification + 0.4, _d_speed_magnification_min, _d_speed_magnification_max)
+	elif area.en_item_kind == g_val.EnItemKind.POWER_UP :
+		_i_laser_power_level = clampi(
+						_i_laser_power_level+1,
+						0,
+						_aa_laser_scn_and_pow.size() - 1)
 	else:
 		pass
 	area.queue_free()

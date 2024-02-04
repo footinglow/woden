@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dci6layah122f"]
+[gd_scene load_steps=5 format=3 uid="uid://bbmjttb41gnkm"]
 
-[ext_resource type="Script" path="res://character/player/my_laser.gd" id="1_0cbqp"]
+[ext_resource type="Script" path="res://character/player/my_laser.gd" id="1_xoqxm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqm8f"]
 albedo_color = Color(0.694118, 0.796078, 0, 1)
@@ -10,24 +10,33 @@ material = SubResource("StandardMaterial3D_aqm8f")
 radius = 0.2
 height = 5.0
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_baygq"]
-size = Vector3(6, 1, 5)
+[sub_resource type="BoxShape3D" id="BoxShape3D_pq1jx"]
+size = Vector3(10, 1, 7)
 
 [node name="my_laser" type="Area3D"]
 collision_layer = 4
 collision_mask = 8
-script = ExtResource("1_0cbqp")
+script = ExtResource("1_xoqxm")
 
 [node name="laser_left" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -3, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -5, 0, 0)
+mesh = SubResource("CapsuleMesh_716gh")
+
+[node name="laser_center" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -2, 0, -2)
+mesh = SubResource("CapsuleMesh_716gh")
+
+[node name="laser_center2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2, 0, -2)
 mesh = SubResource("CapsuleMesh_716gh")
 
 [node name="laser_right" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 3, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 5, 0, 0)
 mesh = SubResource("CapsuleMesh_716gh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_baygq")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+shape = SubResource("BoxShape3D_pq1jx")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
 

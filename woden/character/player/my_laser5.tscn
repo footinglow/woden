@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://dkxhhjvd88rbm"]
+
+[ext_resource type="Script" path="res://character/player/my_laser.gd" id="1_3tiri"]
+[ext_resource type="Texture2D" uid="uid://dlawknk2gv5wg" path="res://assets/texture/laser/laser_half_moon.png" id="2_wfghr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1s8va"]
+transparency = 1
+albedo_texture = ExtResource("2_wfghr")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_868cw"]
+material = SubResource("StandardMaterial3D_1s8va")
+size = Vector2(12, 7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pq1jx"]
+size = Vector3(12, 1, 8)
+
+[node name="my_laser" type="Area3D"]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("1_3tiri")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.97913)
+mesh = SubResource("PlaneMesh_868cw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
+shape = SubResource("BoxShape3D_pq1jx")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
