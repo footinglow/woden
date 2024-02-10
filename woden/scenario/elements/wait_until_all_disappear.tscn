@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c36uv0cgj47cu"]
+
+[ext_resource type="Script" path="res://scenario/elements/wait_until_all_disappear.gd" id="1_6pvt3"]
+
+[node name="wait_until_all_disappear" type="Node3D"]
+script = ExtResource("1_6pvt3")

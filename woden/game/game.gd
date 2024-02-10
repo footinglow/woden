@@ -15,6 +15,7 @@ func _ready():
 	g_val.node_enemies = $DynamicNodes/enemy/bodies
 	g_val.node_bullets = $DynamicNodes/enemy/bullets
 	g_val.node_others = $DynamicNodes/others
+	g_val.node_world = $WorldEnvironment
 
 	# Playerインスタンスを設定する
 	g_val.node_player = $Player

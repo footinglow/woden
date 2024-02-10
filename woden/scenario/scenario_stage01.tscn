@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://djm6a38w7x0n7"]
+[gd_scene load_steps=8 format=3 uid="uid://djm6a38w7x0n7"]
 
 [ext_resource type="Script" path="res://scenario/scenario_executor.gd" id="1_j3plt"]
 [ext_resource type="PackedScene" uid="uid://d2ukpy8y12lst" path="res://scenario/elements/produce_asteroid_big.tscn" id="2_4fsts"]
 [ext_resource type="PackedScene" uid="uid://dejjcnjwou2w4" path="res://scenario/elements/produce_upgrade_item.tscn" id="2_kqijy"]
 [ext_resource type="PackedScene" uid="uid://dr325hxghj710" path="res://scenario/elements/wait_specified_time.tscn" id="2_o7h6k"]
+[ext_resource type="PackedScene" uid="uid://cpybsypovex6y" path="res://scenario/elements/control_scroll_speed.tscn" id="3_4wnsw"]
 [ext_resource type="PackedScene" uid="uid://bwipc7alsssgx" path="res://scenario/elements/produce_twin_body.tscn" id="3_lvaux"]
+[ext_resource type="PackedScene" uid="uid://c36uv0cgj47cu" path="res://scenario/elements/wait_until_all_disappear.tscn" id="5_16m2c"]
 
 [node name="scenario_stage01" type="Node"]
 script = ExtResource("1_j3plt")
@@ -19,6 +21,8 @@ script = ExtResource("1_j3plt")
 
 [node name="produce_upgrade_item6" parent="." instance=ExtResource("2_kqijy")]
 
+[node name="control_scroll_speed" parent="." instance=ExtResource("3_4wnsw")]
+
 [node name="produce_asteroid_big" parent="." instance=ExtResource("2_4fsts")]
 
 [node name="produce_upgrade_item2" parent="." instance=ExtResource("2_kqijy")]
@@ -31,7 +35,12 @@ script = ExtResource("1_j3plt")
 
 [node name="produce_upgrade_item10" parent="." instance=ExtResource("2_kqijy")]
 
+[node name="wait_until_all_disappear" parent="." instance=ExtResource("5_16m2c")]
+
 [node name="wait_5sec" parent="." instance=ExtResource("2_o7h6k")]
+
+[node name="control_scroll_speed2" parent="." instance=ExtResource("3_4wnsw")]
+_d_target_scroll_magni = 1.0
 
 [node name="produce_twin_body_x_10_every_1sec" parent="." instance=ExtResource("3_lvaux")]
 _d_produce_interval_sec = 1.0
