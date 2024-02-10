@@ -17,7 +17,7 @@ func is_blocking_to_move_on_next_scenario() -> bool:
 
 func _physics_process(delta):
 	if !$Timer.is_stopped():
-		# タイマーが動いている間はスクロース速度倍率を制御する
+		# タイマーが動いている間はスクロール速度倍率を制御する
 		var d_past_time = _d_period_time_sec - $Timer.time_left
 		var sc_magni = remap(
 					d_past_time,								# value
