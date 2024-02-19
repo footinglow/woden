@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6llxgtpa521i"]
+
+[ext_resource type="PackedScene" uid="uid://cpvsethtirr2r" path="res://assets/blender/boss_bigfire/BossStage1.glb" id="1_jcxwr"]
+[ext_resource type="Script" path="res://character/boss/boss_bigfire.gd" id="1_l78ug"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ko30e"]
+radius = 2.0
+height = 17.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_chktf"]
+size = Vector3(10, 3.17139, 11.3548)
+
+[node name="boss_bigfire" type="Area3D"]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_l78ug")
+
+[node name="BossStage1" parent="." instance=ExtResource("1_jcxwr")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="CollisionShape3D_Engine_R" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 6.35696, 0.860838, 1.00012)
+shape = SubResource("CapsuleShape3D_ko30e")
+
+[node name="CollisionShape3D_Engine_L" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -6.357, 0.861, 1)
+shape = SubResource("CapsuleShape3D_ko30e")
+
+[node name="CollisionShape3D_Center" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.861, 6.23259)
+shape = SubResource("CapsuleShape3D_ko30e")
+
+[node name="CollisionShape3D_Body" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.70939, 1.19251)
+shape = SubResource("BoxShape3D_chktf")
