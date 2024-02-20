@@ -36,19 +36,23 @@ func _physics_process(delta):
 	super.check_destroyed()
 	# 移動処理
 	match( _en_mode ):
+		# 動作モード1:ベース位置に戻る
 		BigFireMode.RETURN_TO_BASE_POS:
-			move_toward_target_pos(delta)
-			if is_reached_target_pos():
-				init_repeat_lateral()
+			move_toward_target_pos(delta)	# 目標位置に向かって移動
+			if is_reached_target_pos():		# 目標位置到達判断
+				init_repeat_lateral()		# 「動作モード2:反復横移動」に初期化
+
+		# 動作モード2:反復横移動
 		BigFireMode.REPEAT_LATERAL:
-			process_repeat_lateral(delta)
-			# 左右への移動を一定回数繰り返した場合、突進動作にする
-			if _i_repeat_remain_cnt <= 0:
-				init_rush_forward()
+			process_repeat_lateral(delta)	# 反復横移動の実行
+			if _i_repeat_remain_cnt <= 0:	# 反復横移動の完了判断
+				init_rush_forward()			# 「 動作モード3:突進」に初期化
+
+		# 動作モード3:突進
 		BigFireMode.RUSH_FORWARD:
-			move_toward_target_pos(delta)
-			if is_reached_target_pos():
-				init_return_to_base_pos()
+			move_toward_target_pos(delta)	# 目標位置に向かって移動
+			if is_reached_target_pos():		# 目標位置到達判断
+				init_return_to_base_pos()	# 「動作モード1:ベース位置に戻る」に初期化
 
 # 目標位置との差分を速度にして、移動する
 func move_toward_target_pos(delta):
@@ -80,7 +84,7 @@ func init_repeat_lateral():
 	if global_position.x < 0:
 		target_x = g_val.d_visible_bottom_max_x_m
 	else:
-		target_x = -g_val.d_visible_bottom_max_x_m
+		target_x = g_val.d_visible_bottom_min_x_m
 	_v_target_pos = Vector3(
 						target_x,
 						global_position.y,
