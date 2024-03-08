@@ -6,6 +6,5 @@
 script = ExtResource("1_snkjj")
 
 [node name="FireTimer" type="Timer" parent="."]
-autostart = true
 
 [connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]
