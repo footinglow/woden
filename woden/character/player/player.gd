@@ -63,7 +63,7 @@ func _physics_process(delta):
 
 		# 3D ray physics queryの作成
 		var query = PhysicsRayQueryParameters3D.create(from3d, to3d)
-		query.collide_with_areas = true		# Area3Dを検知できるようにする
+		# query.collide_with_areas = true		# Area3Dを検知できるようにする
 		
 		#　spaceと呼ばれる、物理３D空間状態の情報を利用して、Area3Dを含む衝突位置を計算する
 		var space_state = get_world_3d().direct_space_state
