@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://qri6r7e228h0"]
+
+[ext_resource type="Script" path="res://character/enemy_bullet/boss_bazooka.gd" id="1_56hhl"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_osf1k"]
+radius = 2.5
+height = 5.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vvftt"]
+radius = 2.5
+
+[node name="BossBazooka" type="Area3D"]
+script = ExtResource("1_56hhl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_osf1k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_vvftt")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6llxgtpa521i"]
+[gd_scene load_steps=7 format=3 uid="uid://b6llxgtpa521i"]
 
 [ext_resource type="PackedScene" uid="uid://cpvsethtirr2r" path="res://assets/blender/boss_bigfire/BossStage1.glb" id="1_jcxwr"]
 [ext_resource type="Script" path="res://character/boss/boss_bigfire.gd" id="1_l78ug"]
 [ext_resource type="PackedScene" uid="uid://cy8dqrvv1lgev" path="res://character/enemy_bullet/fire_360_bullet_periodically.tscn" id="3_6r53j"]
+[ext_resource type="PackedScene" uid="uid://bjtidjp02a4ss" path="res://character/enemy_bullet/boss_bazooka_periodically.tscn" id="4_ukf3k"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ko30e"]
 radius = 2.0
@@ -36,3 +37,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.70939, 1.19251)
 shape = SubResource("BoxShape3D_chktf")
 
 [node name="fire_360_bullet_periodically" parent="." instance=ExtResource("3_6r53j")]
+
+[node name="BossBazookaPeriodically_R" parent="." instance=ExtResource("4_ukf3k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, 11)
+gizmo_extents = 2.5
+
+[node name="BossBazookaPeriodically_L" parent="." instance=ExtResource("4_ukf3k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 11)
+gizmo_extents = 2.5

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://djm6a38w7x0n7"]
+[gd_scene load_steps=10 format=3 uid="uid://djm6a38w7x0n7"]
 
 [ext_resource type="Script" path="res://scenario/scenario_executor.gd" id="1_j3plt"]
 [ext_resource type="PackedScene" uid="uid://d2ukpy8y12lst" path="res://scenario/elements/produce_asteroid_big.tscn" id="2_4fsts"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cpybsypovex6y" path="res://scenario/elements/control_scroll_speed.tscn" id="3_4wnsw"]
 [ext_resource type="PackedScene" uid="uid://bwipc7alsssgx" path="res://scenario/elements/produce_twin_body.tscn" id="3_lvaux"]
 [ext_resource type="PackedScene" uid="uid://b00e6m5nj1w56" path="res://scenario/elements/boss/produce_boss_bigfire.tscn" id="3_swtba"]
+[ext_resource type="Script" path="res://scenario/elements/wait_until_all_disappear.gd" id="3_t4j26"]
 [ext_resource type="PackedScene" uid="uid://c36uv0cgj47cu" path="res://scenario/elements/wait_until_all_disappear.tscn" id="5_16m2c"]
 
 [node name="scenario_stage01" type="Node"]
@@ -21,12 +22,13 @@ script = ExtResource("1_j3plt")
 [node name="produce_upgrade_item5" parent="." instance=ExtResource("2_kqijy")]
 
 [node name="produce_upgrade_item6" parent="." instance=ExtResource("2_kqijy")]
+script = ExtResource("3_t4j26")
+
+[node name="wait_until_all_disappear2" parent="." instance=ExtResource("5_16m2c")]
 
 [node name="produce_boss_bigfire" parent="." instance=ExtResource("3_swtba")]
 
 [node name="control_scroll_speed" parent="." instance=ExtResource("3_4wnsw")]
-
-[node name="produce_asteroid_big" parent="." instance=ExtResource("2_4fsts")]
 
 [node name="produce_upgrade_item2" parent="." instance=ExtResource("2_kqijy")]
 
@@ -37,6 +39,10 @@ script = ExtResource("1_j3plt")
 [node name="produce_upgrade_item9" parent="." instance=ExtResource("2_kqijy")]
 
 [node name="produce_upgrade_item10" parent="." instance=ExtResource("2_kqijy")]
+
+[node name="wait_until_all_disappear3" parent="." instance=ExtResource("5_16m2c")]
+
+[node name="produce_asteroid_big" parent="." instance=ExtResource("2_4fsts")]
 
 [node name="wait_until_all_disappear" parent="." instance=ExtResource("5_16m2c")]
 
