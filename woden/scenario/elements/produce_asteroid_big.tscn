@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d2ukpy8y12lst"]
 
-[ext_resource type="Script" path="res://scenario/elements/produce_asteroid.gd" id="1_perr5"]
+[ext_resource type="Script" uid="uid://dwdct7h82hedo" path="res://scenario/elements/produce_asteroid.gd" id="1_perr5"]
 
 [node name="produce_asteroid_big" type="Node3D"]
 script = ExtResource("1_perr5")

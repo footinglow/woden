@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cpybsypovex6y"]
 
-[ext_resource type="Script" path="res://scenario/elements/control_scroll_speed.gd" id="1_qxobk"]
+[ext_resource type="Script" uid="uid://r2nsk0wy34sh" path="res://scenario/elements/control_scroll_speed.gd" id="1_qxobk"]
 
 [node name="control_scroll_speed" type="Node3D"]
 script = ExtResource("1_qxobk")

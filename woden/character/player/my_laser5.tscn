@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dkxhhjvd88rbm"]
 
-[ext_resource type="Script" path="res://character/player/my_laser.gd" id="1_3tiri"]
+[ext_resource type="Script" uid="uid://c2fhfha3li3nv" path="res://character/player/my_laser.gd" id="1_3tiri"]
 [ext_resource type="Texture2D" uid="uid://dlawknk2gv5wg" path="res://assets/texture/laser/laser_half_moon.png" id="2_wfghr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1s8va"]

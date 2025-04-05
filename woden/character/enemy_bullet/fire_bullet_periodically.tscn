@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://7ld511xayncm"]
 
-[ext_resource type="Script" path="res://character/enemy_bullet/fire_bullet_periodically.gd" id="1_cjt5o"]
+[ext_resource type="Script" uid="uid://b6hk1iculoyfx" path="res://character/enemy_bullet/fire_bullet_periodically.gd" id="1_cjt5o"]
 
 [node name="fire_bullet_periodically" type="Marker3D"]
 script = ExtResource("1_cjt5o")

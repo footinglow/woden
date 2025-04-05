@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b00e6m5nj1w56"]
 
-[ext_resource type="Script" path="res://scenario/elements/boss/produce_boss_bigfire.gd" id="1_adpm4"]
+[ext_resource type="Script" uid="uid://c7otlrbrr3smg" path="res://scenario/elements/boss/produce_boss_bigfire.gd" id="1_adpm4"]
 
 [node name="produce_boss_bigfire" type="Node3D"]
 script = ExtResource("1_adpm4")

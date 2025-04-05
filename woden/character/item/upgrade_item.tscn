@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dfobepo7sjenj"]
 
-[ext_resource type="Script" path="res://character/item/upgrade_item.gd" id="1_4lnhj"]
+[ext_resource type="Script" uid="uid://ykdo58fbpr5o" path="res://character/item/upgrade_item.gd" id="1_4lnhj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_24cd3"]
 albedo_color = Color(1, 0, 0, 1)
@@ -43,7 +43,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g6p4c"]
 _data = {
-"repeat": SubResource("Animation_38dh6")
+&"repeat": SubResource("Animation_38dh6")
 }
 
 [node name="upgrade_item" type="Area3D"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bcxwyvjgjb3g3"]
 
-[ext_resource type="Script" path="res://character/player/my_laser.gd" id="1_kklu7"]
+[ext_resource type="Script" uid="uid://c2fhfha3li3nv" path="res://character/player/my_laser.gd" id="1_kklu7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mwj57"]
 albedo_color = Color(0.133333, 0.745098, 0.709804, 1)
@@ -32,7 +32,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qlwrv"]
 _data = {
-"ripple": SubResource("Animation_f0811")
+&"ripple": SubResource("Animation_f0811")
 }
 
 [node name="my_ring_laser" type="Area3D"]

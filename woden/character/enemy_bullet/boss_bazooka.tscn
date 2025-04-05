@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://qri6r7e228h0"]
 
-[ext_resource type="Script" path="res://character/enemy_bullet/boss_bazooka.gd" id="1_56hhl"]
+[ext_resource type="Script" uid="uid://dvp6fe65ypn6k" path="res://character/enemy_bullet/boss_bazooka.gd" id="1_56hhl"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_osf1k"]
 radius = 2.5

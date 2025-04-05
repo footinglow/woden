@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b6llxgtpa521i"]
 
 [ext_resource type="PackedScene" uid="uid://cpvsethtirr2r" path="res://assets/blender/boss_bigfire/BossStage1.glb" id="1_jcxwr"]
-[ext_resource type="Script" path="res://character/boss/boss_bigfire.gd" id="1_l78ug"]
+[ext_resource type="Script" uid="uid://d02cpo2xqylqk" path="res://character/boss/boss_bigfire.gd" id="1_l78ug"]
 [ext_resource type="PackedScene" uid="uid://cy8dqrvv1lgev" path="res://character/enemy_bullet/fire_360_bullet_periodically.tscn" id="3_6r53j"]
 [ext_resource type="PackedScene" uid="uid://bjtidjp02a4ss" path="res://character/enemy_bullet/boss_bazooka_periodically.tscn" id="4_ukf3k"]
 

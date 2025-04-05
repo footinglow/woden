@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bjtidjp02a4ss"]
 
-[ext_resource type="Script" path="res://character/enemy_bullet/boss_bazooka_periodically.gd" id="1_5gnec"]
+[ext_resource type="Script" uid="uid://ds2vyrxabnivg" path="res://character/enemy_bullet/boss_bazooka_periodically.gd" id="1_5gnec"]
 
 [node name="BossBazookaPeriodically" type="Marker3D"]
 gizmo_extents = 5.0

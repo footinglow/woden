@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://chmabukyrxtsc"]
 
 [ext_resource type="PackedScene" uid="uid://dus0aqnwwjfch" path="res://assets/blender/twin_body/twin_body.glb" id="1_ifrin"]
-[ext_resource type="Script" path="res://character/enemy/twin_body.gd" id="1_k2uxh"]
+[ext_resource type="Script" uid="uid://huu0mgmjfnsm" path="res://character/enemy/twin_body.gd" id="1_k2uxh"]
 [ext_resource type="PackedScene" uid="uid://7ld511xayncm" path="res://character/enemy_bullet/fire_bullet_periodically.tscn" id="3_jnvr8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cipgf"]

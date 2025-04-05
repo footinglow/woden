@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dq02cum36jg84"]
 
-[ext_resource type="Script" path="res://character/player/my_laser.gd" id="1_mf6lo"]
+[ext_resource type="Script" uid="uid://c2fhfha3li3nv" path="res://character/player/my_laser.gd" id="1_mf6lo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqm8f"]
 albedo_color = Color(0.694118, 0.796078, 0, 1)
